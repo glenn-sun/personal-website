@@ -10,13 +10,16 @@
   <body>
     <div class="sidebar">
       <div class="profile-pic">
-
+        <img src="img/profile.jpg">
       </div>
-      <h1>Glenn Sun</h1>
-      <div class="email" user="nusnnelg" site="ude.alcu"></div>
-      {%- for link in links.data -%}
-        <div><a href="{{ link.href }}">{{ link.title }}</a></div>
-      {%- endfor -%}
+      <div class="side-text">
+        <h1>Glenn Sun</h1>
+        <div class="email" user="nusnnelg" site="ude.alcu"></div>
+        {%- for link in links.data -%}
+          <div><a href="{{ link.href }}">{{ link.title }}</a></div>
+        {%- endfor -%}
+      </div>
+      
     </div>
     <div class="content">
       {{ content | safe }}

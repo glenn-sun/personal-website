@@ -2,11 +2,11 @@ module.exports = {
     data: [
         {
             "title": "CV",
-            "href": ""
+            "href": "docs/cv.pdf"
         },
         {
             "title": "Courses Taken",
-            "href": ""
+            "href": "docs/courses-taken.pdf"
         },
         {
             "title": "LinkedIn",

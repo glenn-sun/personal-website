@@ -6,8 +6,7 @@
 body {
     margin: auto;
     max-width: 840px;
-    padding: 18px;
-    padding-bottom: 90px;
+    padding: 18px 36px;
     font-family: 'Lato', sans-serif;
     font-size: 18px;
     line-height: 1.4em;
@@ -19,21 +18,29 @@ body {
 
 .sidebar {
     padding-right: 18px;
-    padding-bottom: 24px;
+    padding-bottom: 18px;
     border-right: 1px solid #222222;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.sidebar > div {
+.side-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.side-text > div {
     margin-bottom: 0.25em;
 }
 
-.profile-pic {
-    min-width: 120px;
-    min-height: 120px;
-    background-color: #666666;
+.side-text > div:last-child {
+    margin-bottom: 0;
+}
+
+.profile-pic > img {
+    width: 120px;
 }
 
 .content {
@@ -59,6 +66,72 @@ a:hover {
     direction: rtl;
 }
 
+.side-text > .email {
+    margin-bottom: 0.5em;
+}
+
 h1 {
     white-space: nowrap;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 840px) {
+    body {
+        font-size: 16px;
+    }
+
+    .profile-pic > img {
+        width: 105px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .sidebar {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid #222222;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .side-text {
+        align-items: flex-start;
+    }
 }
