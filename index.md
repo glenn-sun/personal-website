@@ -26,6 +26,7 @@ UCLA Olga Radko Endowed Math Circle
 * [Hat Puzzles and the Axiom of Choice](https://circles.math.ucla.edu/circles/events.shtml?id=2162)
 * [Introduction to Algorithms](https://circles.math.ucla.edu/circles/events.shtml?id=2177)
 * [P vs. NP](https://circles.math.ucla.edu/circles/events.shtml?id=2178)
+* [Intro to Quantum Computing (Draft)](docs/quantum.pdf)
 
 Scribe notes for CS 281A: Computability and Complexity (Fall 2020)
 
