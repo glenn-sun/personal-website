@@ -14,7 +14,7 @@ I lead a class for high school students at the [UCLA Olga Radko Endowed Math Cir
 ### Research Papers
 
 * Deterministic Graph Coloring in the Streaming Model, S. Assadi, A. Chen, and G. Sun, accepted to *STOC 2022*. [arXiv:2109.14891](https://arxiv.org/abs/2109.14891)
-* Visualization Equilibrium, P. Kayongo, G. Sun, J. Hartline, and J. Hullman, *IEEE Transactions on Visualization and Computer Graphics* **28** (2022), 465–474. [doi:10.1109/TVCG.2021.3114842](https://doi.org/10.1109/TVCG.2021.3114842)
+* Visualization Equilibrium, P. Kayongo, G. Sun, J. Hartline, and J. Hullman, *IEEE Transactions on Visualization and Computer Graphics* **28** (2022), 465–474. [arXiv:2108.04953](https://arxiv.org/abs/2108.04953)
 
 ### Handouts and Notes
 
