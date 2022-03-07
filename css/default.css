@@ -35,7 +35,7 @@ body {
 }
 
 .profile-pic > img {
-    width: 120px;
+    width: 150px;
 }
 
 .content {
@@ -102,7 +102,7 @@ h3 {
     }
 
     .profile-pic > img {
-        width: 105px;
+        width: 130px;
     }
 }
 
