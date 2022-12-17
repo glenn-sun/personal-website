@@ -26,11 +26,11 @@ I lead a class for high school students at the [UCLA Olga Radko Endowed Math Cir
     * [Fast Fourier Transform](https://circles.math.ucla.edu/circles/events.shtml?id=2754)
     * [Zero Knowledge Proofs](https://circles.math.ucla.edu/circles/events.shtml?id=3009)
     * [Mathematics of Juggling](https://circles.math.ucla.edu/circles/events.shtml?id=3294)
-* [Full lecture notes for MATH 285N: Tiling Problems (Fall 2022)](https://www.dropbox.com/sh/fta4ucujil5sdnq/AAB3v5vNhVk0XsURWZe_qzssa)
+* [Full lecture notes for MATH 285N: Tiling Problems (Fall 2022)](docs/math285n-tiling.pdf)
 * Partial lecture notes for CS 281A: Computability and Complexity (Fall 2020)
     * [Lecture 3: Universal Simulation of Turing Machines](docs/cs281-lec3.pdf)
     * [Lecture 11: PH with Oracles and Introduction to Randomness](docs/cs281-lec11.pdf)
     * [Lecture 12: Randomized Complexity Classes](docs/cs281-lec12.pdf)
     * [Lecture 13: Sipser–Gács Theorem and Other Topics in Randomness](docs/cs281-lec13.pdf)
 
-Last updated December 2, 2022
+Last updated December 16, 2022
