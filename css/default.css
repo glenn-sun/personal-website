@@ -130,3 +130,40 @@ h3 {
         align-items: flex-start;
     }
 }
+
+.button {
+    display: inline;
+    background-color: #6c6c6c;
+    color: white;
+    padding: 2px 5px;
+    font-size: 75%;
+}
+
+summary {
+    background-color: #6c6c6c;
+    color: white;
+    padding: 2px 5px;
+    font-size: 75%;
+    width: max-content;
+    line-height: 1em;
+    margin: 2px 0px 0px 0px;
+}
+
+summary:hover {
+    cursor: pointer;
+}
+
+#update {
+    font-size: 85%;
+    font-style: italic;
+    margin-top: 50px;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.pub {
+    font-style: italic;
+    margin-right: 10px;
+}
