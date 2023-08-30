@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Lato';
+    font-weight: normal;
+    src: url("../fonts/Lato-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-weight: bold;
+    src: url("../fonts/Lato-Bold.ttf") format('truetype');
+}
+
 body {
     margin: auto;
     max-width: 840px;
