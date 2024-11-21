@@ -1,0 +1,197 @@
+:root {
+    --r-main-font-size: 48px;
+    --r-heading-font: Lato, sans-serif;
+    --r-heading1-size: 2em;
+    --r-heading2-size: 1.5em;
+    --r-heading3-size: 1.25em;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-weight: bold;
+  padding: 0.5em 0em;
+  margin: 0;
+}
+
+p {
+  text-align: left;
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+}
+
+li {
+  margin: 0.5em; 
+}
+
+.subhead {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.center {
+  text-align: center;
+}
+
+.theorem {
+  background-color: #eee;
+  padding: 0.75em;
+  border-radius: 1em;
+  margin: var(--r-block-margin) 0;
+}
+
+section {
+  top: 0px !important;
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+}
+
+.vertical-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.column {
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center;
+}
+
+.theorem > :first-child {
+  margin-top: 0;
+}
+
+.theorem > :last-child {
+  margin-bottom: 0;
+}
+
+mjx-container.MathJax:last-child {
+  margin-bottom: 0 !important;
+}
+
+.slides section .fragment { 
+  transition: all 0.5s; 
+}
+
+.slides section .fragment.fade-in-then-out{ 
+  transition: all 0.5s; 
+}
+
+.no-border {
+  border: none !important;
+}
+
+.full-border {
+  border: 1px solid !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.background-gray {
+  background-color: #eee;
+}
+
+.fragment.frag-background-gray.visible {
+  background-color: #eee;
+}
+
+.overlap {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.overlap > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.comment {
+  float: right;
+  background-color: #ffdede;
+  padding: 0.2em 0.4em;
+  border-radius: 0.1em;
+  border: 1px solid;
+}
+
+.gist-data {
+  height: 320px;
+  overflow-y: visible;
+}
+
+.gist {
+  zoom: 2.5;
+}
+
+strong {
+  font-weight: bold;
+  color: #255fdd;
+}
+
+.reveal .slides .citations { 
+  margin: auto 0 0 0; 
+  font-size: 0.8em;
+}
+
+.reveal .citations td {
+  vertical-align: top;
+  text-align: left;
+  border: none; 
+}
+
+.reveal .citations td:first-child {
+  width: 4em; 
+}
+
+img {
+  scale: 1;
+}
+
+.reveal .slides table {
+  border-style: hidden;
+  margin: 0;
+}
+
+.reveal .padded-table td {
+  padding-left: 1em; 
+  padding-right: 1em;
+}
+
+.reveal table td, .reveal table th {
+  border: 2px solid gray;
+  text-align: center;
+}
+
+.img-fill {
+  width: 100%;
+}
+
+.left-double {
+  border-left-style: double !important;
+  border-left-width: 6px !important;
+}
+
+.pad-top-bottom {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.mono {
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.fixed > * {
+  position: absolute;
+  color: #db3939;
+}

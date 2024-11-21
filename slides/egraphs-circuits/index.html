@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>E-graphs as Circuits, and Optimal Extraction via Treewidth</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <div class="vertical-center">
+          <h1>E-graphs as Circuits, and Optimal Extraction via Treewidth</h1>
+          <p class="subhead">Glenn Sun</p>
+          <p class="center">Joint work with Yihong Zhang and Haobin Ni</p>
+          <p class="center"><em>University of Washington</em></p>
+          <p class="center"><br>arXiv:2408.17042<br><br></p>
+          <p class="center">EGRAPHS November Community Meeting</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Overview</h2>
+        <p>Our main contribution is an equivalence:</p>
+        <p class="center"><strong>e-graphs $\leftrightarrow$ (cyclic) monotone circuits</strong></p>
+        <p class="fragment" data-fragment-index="1">This allows us to:</p> 
+        <ul>
+          <li class="fragment" data-fragment-index="1">Apply <strong>[KTX17]</strong> to efficiently solve extraction, parameterized by treewidth.</li> 
+          <li class="fragment" data-fragment-index="2">More easily <strong>simplify e-graphs</strong>, which significantly reduces treewidth.</li>
+        </ul>
+
+        <p class="fragment" data-fragment-index="3">The algorithm is very similar to <strong>[GLP24]</strong>.</p>
+
+        <table class="citations">
+          <tr class="fragment" data-fragment-index="1">
+            <td>[KTX17]</td>
+            <td>Iyad Kanj, Dimitrios M. Thilikos, and Ge Xia. <em>On the parameterized complexity of monotone and antimonotone weighted circuit satisfiability.</em></td>
+          </tr>
+          <tr class="fragment" data-fragment-index="3">
+            <td>[GLP24]</td>
+            <td>Amir Kafshdar Goharshady, Chun Kit Lam, and Lionel Parreaux. <em>Fast and Optimal Extraction for Sparse Equality Graphs.</em></td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Monotone circuits</h2>
+        <p>A <strong>monotone circuit</strong> is a circuit with only AND and OR gates.</p>
+        <div class="column pad-top-bottom">
+          <div class="fragment">
+            <p>e-node $\leftrightarrow$ all children true $\leftrightarrow$ AND</p>
+            <img width="766px" src="node-and.svg">
+          </div>
+          <div class="fragment">
+            <p>e-class $\leftrightarrow$ at least one child true $\leftrightarrow$ OR</p>
+            <img width="766px" src="class-or.svg">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="column vertical-center">
+          <img width="383px" src="egraph-example.svg">
+          <p class="fragment" data-fragment-index="1">$\longrightarrow$</p> 
+          <img class="fragment" data-fragment-index="1" width="713px" src="egraph-converted.svg">
+        </div>
+      </section>
+
+      <section>
+        <h2>What about cycles?</h2>
+        <div class="column">
+          <div style="width: 800px; height: 550px; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img class="fragment" data-fragment-index="1" width="524px" src="cyclic-circuit.svg">
+          </div>
+          <table class="fragment" data-fragment-index="2">
+            <tr class="fragment" data-fragment-index="2">
+              <th>$x$</th>
+              <th>old output</th>
+              <th class="left-double">new output</th>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>0</td>
+              <td>0</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>0</td>
+              <td>1</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>1</td>
+              <td>0</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="6">
+              <td>1</td>
+              <td>1</td>
+              <td class="left-double">1</td>
+            </tr>
+          </table>
+        </div>
+        <p class="fragment">But e-graphs researchers never have to think about this. Why not?</p>
+
+      </section>
+      <section>
+        <h2>What about cycles?</h2>
+        <div class="column">
+          <div style="width: 800px; height: 550px; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img width="744px" src="cyclic-circuit2.svg">
+          </div>
+          <table>
+            <tr>
+              <th>$x$</th>
+              <th>old output</th>
+              <th class="left-double">new output</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td class="left-double">1</td>
+            </tr>
+          </table>
+        </div>
+        <p>But e-graphs researchers never have to think about this. Why not?</p>
+      </section>
+      <section>
+        <h2>What about cycles?</h2>
+        <div class="column">
+          <div style="width: 800px; height: 550px; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img width="744px" src="cyclic-circuit2.svg">
+            <img width="203px" src="tiny.svg">
+          </div>
+          <table>
+            <tr>
+              <th>$x$</th>
+              <th>old output</th>
+              <th class="left-double">new output</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td class="left-double">0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td class="left-double">1</td>
+            </tr>
+          </table>
+        </div>
+        <p>But e-graphs researchers never have to think about this. Why not?</p>
+        <div class="fixed">
+          <p class="fragment" style="top: 305px; left: 990px;">✅</p>
+          <p class="fragment" style="top: 554px; left: 990px;">✅</p>
+          <p class="fragment" style="top: 388px; left: 990px;">❌</p>
+          <p class="fragment" style="top: 471px; left: 990px;">❌</p>
+        </div>
+        <ul>
+          <li class="fragment">To find the minimum cost extraction, only need to consider  <strong>minimal</strong> solutions.</li>
+          <li class="fragment">For this particular circuit construction, every choice of minimally satisfying inputs (what to extract) has a unique way to set the rest of the circuit.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Converting to circuits</h2>
+        <p>To convert an e-graph $G$ to a circuit $C$:</p>
+        <ul>
+          <li>Replace every e-class with an OR gate.</li>
+          <li>Replace every e-node with an AND gate and a variable connected to it.</li>
+        </ul>
+        <div class="theorem fragment">
+          <p><b>Observation.</b> After this conversion from e-graph to circuit, there is a bijection</p>
+          <p class="center"><strong>minimal extractions</strong> of $G$ $\leftrightarrow$ <strong>minimal satisfying solutions</strong> of $C$.</p>
+          <p>This bijection preserves acyclicity.</p>
+          <p>(acyclic: extraction has no self-dependencies, circuit evaluation has no 1-cycles)</p>
+        </div>
+        <p class="fragment">$\implies$ Extraction is equivalent to <strong>weighted monotone circuit SAT</strong>!</p>
+      </section>
+      <section>
+        <h2>Minimum weight monotone circuit SAT</h2>
+        <p>[KTX17] already solved this, albeit stated only for circuits that do not have cycles.</p>
+        <p class="theorem"><b>Proposition 4.7 in [KTX17].</b> Let $C$ be a monotone circuit <strong>(with no cycles)</strong> and $G$ be the underlying undirected graph with $n$ nodes. If a tree decomposition for $G$ and treewidth $k$ is given, then a minimum weight satsifying assignment of $C$ can be computed in time $2^{O(k)}\text{poly}(n, k)$.</p>
+        <p class="fragment" data-fragment-index="1">The algorithm works unchanged for circuits with cycles, if we allow cyclic extraction!</p>
+        <ul class="fragment" data-fragment-index="1">
+          <li>Intuition: The undirected graph $G$ already "forgot" whether $C$ is a DAG.</li>
+        </ul>
+        <p class="fragment">For acyclic extraction, can maintain the transitive closure of the subgraph of 1-edges to make sure no 1-cycles are formed, achieving $2^{O(k^2)}\text{poly}(n, k)$.</p> 
+      </section>
+
+      <section>
+        <div class="column vertical-center">
+          <img width="713px" src="egraph-converted.svg">
+          <p class="fragment" data-fragment-index="1">$\longrightarrow$</p> 
+          <img class="fragment" data-fragment-index="1" width="701px" src="simplified.svg">
+        </div>
+      </section>
+
+      <section>
+        <h2>Circuit simplification</h2>
+        <p>E-graph simplification before extraction has been used with ILP (i.e. see <span class="mono">https://github.com/egraphs-good/extraction-gym/pull/16)</span></p>
+        <p class="fragment" data-fragment-index="1">With circuits, we can leverage <strong>existing circuit minimization tools that support sequential circuits</strong>*.</p>
+        <ul class="fragment">
+          <li>These preserve the whole $\{\text{input}\} \times \{\text{old state}\} \to \{\text{new state}\}$ table.</li>
+          <li>Takes care of simplifications like the previous slide.</li>
+        </ul>
+        <p class="fragment">But we only care about minimal satisfying solutions, sometimes acyclic.</p>
+        <ul>
+          <li class="fragment">Can write <strong>additional specialized rules</strong> to take advantage of this!</li>
+        </ul>
+        <table class="citations">
+          <tr class="fragment" data-fragment-index="1">
+            <td style="width: 0;">*</td>
+            <td>Need to restrict to the procedures that preserve monotonicity.</td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Custom simplification rules</h2>
+        <p>Because we are only interested in <strong>minimal</strong> extractions:</p>
+        <div class="column vertical-center">
+          <img class="fragment" data-fragment-index="1" width="701px" src="simplified.svg">
+          <p class="fragment" data-fragment-index="2">$\longrightarrow$</p> 
+          <img class="fragment" data-fragment-index="2" width="508px" src="simplified2.svg">
+        </div>
+      </section>
+
+      <section>
+        <h2>Custom simplification rules</h2>
+        <p>If we are only interested in <strong>acyclic extractions:</strong></p>
+        <div class="vertical-center">
+          <img class="fragment" width="1022px" src="remove-or-loop.svg">
+        </div>
+        <div class="fixed">
+          <p class="fragment" style="top: 585px; left: 1160px;">$1$</p>
+          <p class="fragment" style="top: 605px; left: 920px;">$1$</p>
+          <p class="fragment" style="top: 685px; left: 620px;">$1$</p>
+          <p class="fragment" style="top: 685px; left: 1430px;">$1$</p>
+        </div>
+      </section>
+      <section data-auto-animate>
+        <h2>Custom simplification rules</h2>
+        <p>If we are only interested in <strong>acyclic extractions:</strong></p>
+        <div class="vertical-center">
+          <img width="1022px" src="remove-or-loop.svg">
+        </div>
+        <div class="fixed">
+          <p style="top: 585px; left: 1160px;">$0$</p>
+          <p class="fragment" data-fragment-index="1" style="top: 350px; left: 980px; width: 800px;">delete this gate and all out-neighbors that are AND gates recursively</p>
+          <img class="fragment" data-fragment-index="1" width="164px" style="position: relative; top: 508px; left: 980px;" src="x.svg"> 
+        </div>
+      </section>
+      <section data-auto-animate>
+        <h2>Custom simplification rules</h2>
+        <p>If we are only interested in <strong>acyclic extractions:</strong></p>
+        <div class="vertical-center">
+          <img width="1022px" src="remove-or-loop.svg">
+          <p class="center">$\downarrow$</p> 
+          <img width="1022px" src="remove-or-loop2.svg">
+        </div>
+      </section>
+
+      <section>
+        <h2>Simplification results</h2>
+        <div class="column">
+          <div>
+            <p >We applied several ad-hoc rules like this to a test set of e-graphs used with egg. Depending on which applications the e-graphs came from, we observed:</p>
+            <ul>
+              <li>Up to 65% reduction in treewidth.</li>
+              <li>42-97% reduction in $|V|$.</li>
+              <li>57-96% reduction in $|E|$.</li>
+            </ul>
+            <p>A more systematic approach might improve this further.</p>
+          </div>
+          <img width="800px" src="eggcc-bril.png">
+          
+        </div>
+        
+      </section>
+
+      <section>
+        <h2>Open directions</h2>
+        <ul>
+          <li class="fragment">Can the treewidth-based extraction algorithm be adapted to support more general cost functions?</li>
+          <ul>
+            <li class="fragment">Cost of an e-node is often written as a function of the cost of children.</li>
+            <li class="fragment">Current algorithm (both [GLP24] and us) has no way to deal with the cost of a yet-unknown child.</li>
+          </ul>
+          <li class="fragment">How much simplification can you achieve if you actually adapted modern circuit simplification software that is used in practice?</li>
+          <li class="fragment">Can we find more applications of the connection between e-graphs and circuits?</li>
+        </ul>
+        <p class="fragment center pad-top-bottom">Thank you!</p>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/math/math.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/markdown/markdown.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: false,
+      controlsTutorial: false,
+      transition: 'fade',
+      plugins: [RevealMath.KaTeX, RevealMarkdown],
+      width: 1800,
+      height: 1080,
+      history: true,
+      slideNumber: true,
+      // view: 'scroll',
+    });
+
+    Reveal.configure({ pdfSeparateFragments: false });
+
+  </script>
+
+</body>
+
+</html>
